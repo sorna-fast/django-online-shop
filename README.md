@@ -96,7 +96,7 @@ This project is licensed under the [MIT](LICENSE) License.
 
 ## Contact Developer  
     Email: masudpythongit@gmail.com 
-    Telegram: https://t.me/Fast_programmer
+    Telegram: https://t.me/Masoud_GhasemiI_sorna_fast
 🔗 GitHub Account: [sorna-fast](https://github.com/sorna-fast)
 
 ---
