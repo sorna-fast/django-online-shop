@@ -201,6 +201,6 @@ This project is licensed under the [MIT](LICENSE) License.
 
 ## ارتباط با توسعه‌دهنده  
     ایمیل: masudpythongit@gmail.com 
-    تلگرام: https://t.me/Fast_programmer
+    تلگرام: https://t.me/Masoud_GhasemiI_sorna_fast
 🔗 حساب گیتهاب: [sorna-fast](https://github.com/sorna-fast)
 ```
