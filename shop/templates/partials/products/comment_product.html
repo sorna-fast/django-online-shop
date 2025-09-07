@@ -1,0 +1,71 @@
+{% load render_partial %} 
+<div class="reviews-view">
+    <div class="reviews-view__list">
+        <h3 class="reviews-view__header">دیدگاه های مشتریان</h3>
+        <div class="reviews-list">
+            <ol class="reviews-list__content">
+                {% for comment in product.comments_product.all %}
+                    {% if comment.is_active and comment.comment_parent == None %}
+                        <!-- کامنت والد -->
+                        <li class="reviews-list__item">
+                            <div class="review">
+                                <div class="review__avatar">
+                                    <img src="{{ media_url }}images/avatars/avatar-2.jpg" alt="">
+                                </div>
+                                <div class="review__content">
+                                    <div class="review__author">{{ comment.commenting_user.name }}</div>
+                                    <div class="review__text">{{ comment.comment_text }}</div>
+                                    <div class="review__date">{{ comment.registerdate }}</div>
+                                </div>
+                            </div>
+                            
+                            {% if user.is_authenticated %}
+                                <div>
+                                    <a class="btn btn-info" id="btn_{{ comment.id }}" onclick="showCreateCommentForm({{ product.id }}, {{ comment.id }}, '{{ product.slug }}');">پاسخ</a>
+                                </div>
+                                <div id="comment_form_{{ comment.id }}"></div>
+                            {% endif %}
+
+                            <!-- پاسخ‌ها -->
+                            {% for reply in comment.comment_child.all %}
+                                {% if reply.is_active %}
+                                    <ul class="reviews-list__content" style="list-style: none;">
+                                        <li class="reviews-list__item" style="background-color: beige; width: 95%; margin: 10px 5%;">
+                                            <div class="review">
+                                                <div class="review__avatar">
+                                                    <img src="{{ media_url }}images/avatars/avatar-4.jpg" alt="">
+                                                </div>
+                                                <div class="review__content">
+                                                    <div class="review__author">{{ reply.commenting_user.name }}</div>
+                                                    <div class="review__text">{{ reply.comment_text }}</div>
+                                                    <div class="review__date">{{ reply.registerdate }}</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                {% endif %}
+                            {% endfor %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+    {% if user.is_authenticated %}
+        <h3 class="reviews-view__header">دیدگاه خود را بنویسید</h3>
+        <div class="row">
+            <div class="col-12 col-lg-9 col-xl-8">
+                {% render_partial "csf:create_comment" slug=product.slug %}
+            </div>
+        </div>
+    {% else %}
+        <h5> 
+            برای درج دیدگاه خود باید 
+            <a href="{% url "accounts:login" %}?next={% url 'products:product_details' product.slug %}">ورود</a> 
+            یا 
+            <a href="{% url "accounts:register" %}?next={% url 'products:product_details' product.slug %}">ثبت نام</a>
+            کنید
+        </h5>
+    {% endif %}
+</div>

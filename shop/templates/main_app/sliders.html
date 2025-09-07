@@ -1,0 +1,38 @@
+<div class="block-slideshow block-slideshow--layout--full block">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="block-slideshow__body">
+                    <div class="owl-carousel">
+                        {% for slide in sliders %}
+                            <a class="block-slideshow__slide" href="{{ slide.slider_link|default:'#' }}">
+                                <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop"
+                                     style="background-image: url('{{ slide.image_name.url }}')">
+                                </div>
+                                <div class="block-slideshow__slide-content">
+                                    <div class="block-slideshow__slide-title">
+                                        {% if slide.slider_title1 %}
+                                            {{ slide.slider_title1 }}
+                                        {% endif %}
+                                    </div>
+                                    <div class="block-slideshow__slide-text">
+                                        {% if slide.slider_title2 %}
+                                            {{ slide.slider_title2 }}
+                                        {% endif %}
+                                        <br>
+                                        {% if slide.slider_title3 %}
+                                            {{ slide.slider_title3 }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

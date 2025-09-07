@@ -1,0 +1,55 @@
+		<!-- desktop site__header -->
+		<header class="site__header d-lg-block d-none">
+			<div class="site-header">
+				<!-- .topbar -->
+				<div class="site-header__topbar topbar">
+					<div class="topbar__container container">
+						<div class="topbar__row">
+							<div class="topbar__item topbar__item--link"><a class="topbar-link"
+									href="about-us.html" target="_blank">درباره ما</a></div>
+							<div class="topbar__item topbar__item--link"><a class="topbar-link"
+									href="{% url "main:contactus" %}" target="_blank">تماس با من</a></div>
+							<div class="topbar__spring"></div>
+							<div class="topbar__item">
+								<div class="topbar-dropdown">
+									{% if user.is_authenticated %}
+									<button class="topbar-dropdown__btn" type="button">
+										<a href="{% url "accounts:userpanel" %}" class="topbar-link">پنل کاربری</a>
+										<i class="fa fa-user"></i>
+									</button>
+									{% endif %}
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="site-header__middle container">
+					<div class="site-header__logo">
+						<a href="https://github.com/sorna-fast" target="_blank">
+							<img style="width: 70%;" src="{{media_url}}/images/logo.png" alt="">
+						</a>
+					</div>
+					<div class="site-header__search">
+						<div class="search">
+							<form class="search__form" action="{% url "search:search_view" %}">
+								<input class="search__input" name="q" placeholder="جستجو از میان 10,000 محصول"
+									aria-label="Site search" type="text" autocomplete="off">
+								<button class="search__button" type="submit">
+									<i class="fa fa-search"></i>
+								</button>
+								<div class="search__border"></div>
+							</form>
+						</div>
+					</div>
+					<div class="site-header__phone">
+						<div class="site-header__phone-title">پشتیبانی</div>
+						<div class="site-header__phone-number"><span class="ltr_text">081-45231</span></div>
+					</div>
+				</div>
+				<!-- .topbar / end -->
+				{% include "partials/navbar.html" %}
+			</div>
+		</header>
+		<!-- desktop site__header / end -->

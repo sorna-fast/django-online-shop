@@ -1,0 +1,172 @@
+{% extends "main_template.html" %}
+{% load render_partial %} 
+{% block title %}فاکتور سفارش{% endblock title %} 
+{% load humanize %}
+{% block content %} 
+
+		<!-- site__body -->
+		<div class="site__body">
+			<div class="page-header">
+				<div class="page-header__container container">
+					<div class="page-header__breadcrumb">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="{% url 'main:index' %}">خانه</a>
+									/
+								</li>
+								
+								<li class="breadcrumb-item active" aria-current="page">پرداخت</li>
+							</ol>
+						</nav>
+					</div>
+					<div class="page-header__title">
+						<h1>پرداخت</h1></div>
+				</div>
+			</div>
+			<div class="checkout block">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-lg-6 col-xl-7">
+							<div class="card mb-lg-0">
+								<div class="card-body">
+									<form action="{% url "orders:checkout_order" order_id=order.id %}" method="post">
+										{% csrf_token %}
+										<h3 class="card-title">جزئیات پرداخت</h3>
+										<div class="form-row">
+											<div class="form-group col-md-6">
+												<label for="checkout-first-name">نام</label>
+												{{form_order.name}}
+											</div>
+											<div class="form-group col-md-6">
+												<label for="checkout-last-name">نام خانوادگی</label>
+												{{form_order.family}}
+											</div>
+											<div class="form-row">
+												<div class="form-group col-md-6">
+													<label for="checkout-email">آدرس ایمیل</label>
+													{{form_order.email}}
+												</div>
+												<div class="form-group col-md-6">
+													<label for="checkout-phone">تلفن</label>
+													{{form_order.phone_number}}
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="checkout-street-address">آدرس </label>
+												{{form_order.address}}
+										</div>
+										
+									</div>
+									<div class="card-divider"></div>
+									<div class="card-body">
+
+										<div class="form-group">
+											<label for="checkout-comment">توضیحات سفارش <span class="text-muted">(اختیاری)</span></label>
+											{{form_order.description}}
+										</div>
+									</div>
+								</div>
+							</div>
+					
+							<div class="col-12 col-lg-6 col-xl-5 mt-4 mt-lg-0">
+								<div class="card mb-0">
+									<div class="card-body">
+										<h3 class="card-title">سفارش شما</h3>
+										<table class="checkout__totals">
+											<thead class="checkout__totals-header">
+												<tr>
+													<th>نام محصول</th>
+													<th>تعداد</th>
+													<th>جمع کل</th>
+												</tr>
+											</thead>
+											<tbody class="checkout__totals-products">
+												{% for item in shop_cart %}
+													<td> 
+														{{item.product.produce_name}}
+													</td>
+													<td>
+														{{item.quantity}}
+													</td>
+													<td>
+														{{item.total_price|intcomma}}
+													</td>
+
+												</tr>
+												{% endfor %}
+												<tr>
+											</tbody>
+											<tbody class="checkout__totals-subtotals">
+												<tr>
+													<th colspan="2">جمع جزء</th>
+													<td>{{total_price|intcomma}} تومان</td>
+												</tr>
+												<tr>
+													<th colspan="2">حمل و نقل</th>
+													{% if delivery == 0 %}
+														<td>رایگان</td>
+													{% else %}
+													<td>{{delivery|intcomma}} تومان</td>
+													{% endif %}
+												</tr>
+												<tr>
+													<th colspan="2">مالیات</th>
+													<td>{{tax|intcomma}} تومان</td>
+												</tr>
+											</tbody>
+											<tfoot class="checkout__totals-footer">
+												<tr style="color:green; font-weight: bold;">
+													<th colspan="2">جمع کل</th>
+													<td>{{order_final_price|intcomma}} تومان</td>
+
+												</tr>
+											</tfoot>
+										</table>
+
+											<br>
+											<h3 class="card-title">جزئیات حمل و نقل</h3>
+											<div class="form-group">
+			
+												{{form_order.payment}}
+											</div>
+											<br>
+										<div class="checkout__agree form-group">
+											<div class="form-check"><span class="form-check-input input-check"><span class="input-check__body"><input class="input-check__input" type="checkbox" id="checkout-terms"> <span class="input-check__box"></span>
+												<svg class="input-check__icon" width="9px" height="7px">
+													<use xlink:href="images/sprite.svg#check-9x7"></use>
+												</svg>
+												</span>
+												</span>
+												<label class="form-check-label" for="checkout-terms">من <a target="_blank" href="terms-and-conditions.html">قوانین و مقررات</a> را خوانده و موافقم *</label>
+	
+											</div>
+										</div>
+
+										<form action="{% url 'orders:checkout_order' order_id=order.id %}" style="display: flex; justify-content: center; gap: 10px; align-items: center;" method="post">
+										{% csrf_token %}
+										{{form_coupon}}
+										<button 
+											type="submit" 
+											class="btn btn-primary btn-block" 
+											style="
+												padding: 12px 24px;
+												font-size: 1.1rem;
+												min-width: 120px;
+											">
+											اعمال کد
+										</button>
+										
+										<br>
+									<button type="submit" class="btn btn-primary btn-xl btn-block">ثبت سفارش</button>
+								</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<!-- site__body / end -->
+
+{% endblock content %}

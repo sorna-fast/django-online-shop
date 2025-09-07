@@ -1,0 +1,34 @@
+{% extends "userpanel_template.html" %}
+{% block title %}ویرایش اطلاعات{% endblock title %}
+
+{% block content %}
+<div class="block">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-9">
+                <div class="card flex-grow-1 mb-md-0">
+                    <div class="card-body">
+                        <h3 class="card-title">ویرایش پروفایل</h3>
+
+                        {% comment %} اگه به اکشن ادرس ندی به پشت خودش برمیگرده {% endcomment %}
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{form.as_p}}
+                            {% if image_url %}
+                            <img src="{{media_url}}{{image_url}}" style="width: 100px; height: 100px;" alt="">
+                            {% else %}
+                            <img src="{{media_url}}images/customer/nophotom.png" style="width: 100px; height: 100px;" alt="">
+                            {% endif %}
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary mt-4">ویرایش</button>
+                                <a href="{% url "accounts:userpanel" %}" class="btn btn-info mt-4">انصراف</a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

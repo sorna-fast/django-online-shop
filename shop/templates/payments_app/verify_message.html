@@ -1,0 +1,14 @@
+{% extends "main_template.html" %}
+{% load static %}
+{% load humanize %}
+
+{% load render_partial %}
+
+{% block title %}
+	پیام پس از درگاه
+{% endblock title %}
+
+
+{% block content %}
+<h1>{{message}}</h1>
+{% endblock content %}

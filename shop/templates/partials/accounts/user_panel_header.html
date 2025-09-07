@@ -1,0 +1,52 @@
+<header class="site__header d-lg-block d-none userpanel-header">
+    <div class="site-header">
+        <!-- .topbar -->
+        <div class="site-header__topbar topbar">
+            <div class="topbar__container container">
+                <div class="topbar__row">
+                    <div class="topbar__item topbar__item--link">
+                        <a class="topbar-link" href="about-us.html">درباره ما</a>
+                    </div>
+                    <div class="topbar__item topbar__item--link">
+                        <a class="topbar-link" href="contact-us.html">تماس با ما</a>
+                    </div>
+                    <div class="topbar__spring"></div>
+
+                    {% if user.is_authenticated %}
+                    <div class="topbar__item">
+                        <a href="{% url 'accounts:userpanel' %}" class="topbar-user-btn">
+                            <i class="fa fa-user-circle"></i>
+                            <span>پنل کاربری</span>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- logo + search + support -->
+        <div class="site-header__middle container">
+            <div class="site-header__logo">
+                <a href="index.html">
+                    <img style="width: 70%;" src="{{ media_url }}/images/logo.png" alt="">
+                </a>
+            </div>
+            <div class="site-header__search">
+                <div class="search">
+                    <form class="search__form" action="">
+                        <input class="search__input" name="search" placeholder="جستجو بین محصولات"
+                            aria-label="Site search" type="text" autocomplete="off">
+                        <button class="search__button" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <div class="search__border"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="site-header__phone">
+                <div class="site-header__phone-title">پشتیبانی ۲۴ ساعته</div>
+                <div class="site-header__phone-number"><span class="ltr_text">081-45231</span></div>
+            </div>
+        </div>
+
+        {% include "partials/navbar.html" %}

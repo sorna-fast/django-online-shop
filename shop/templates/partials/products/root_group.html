@@ -1,0 +1,30 @@
+      <div class="block-header">
+        <h3 class="block-header__title">{{ title }}</h3>
+        <div class="block-header__divider"></div>
+        <ul class="block-header__groups-list">
+          <li>
+            <button
+              type="button"
+              class="block-header__group block-header__group--active">همه</button>
+          </li>
+          {% for group in products_groups %}
+            <li>
+                <button type="button" class="block-header__group">{{group.group_title}}</button>
+            </li>
+        {% endfor %}
+        </ul>
+        <div class="block-header__arrows-list">
+          <button
+            class="block-header__arrow block-header__arrow--left"
+            type="button"
+          >
+            <i class="fas fa-angle-right"></i>
+          </button>
+          <button
+            class="block-header__arrow block-header__arrow--right"
+            type="button"
+          >
+            <i class="fas fa-angle-left"></i>
+          </button>
+        </div>
+      </div>

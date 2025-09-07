@@ -1,0 +1,817 @@
+{% extends "main_template.html" %}
+{% load render_partial %} 
+{% block title %}فروشگاه درسمن{% endblock title %} 
+
+{% block content %} 
+{% comment %} {% render_partial 'main:test_view' %} {% endcomment %}
+<!-- site__body -->
+<div class="site__body">
+  <!-- .block-slideshow -->
+  {% render_partial "main:sliders" %}
+  <!-- .block-slideshow / end -->
+  <!-- .block-features -->
+  <div class="block block-features block-features--layout--boxed">
+    <div class="container">
+      <div class="block-features__list">
+        <div class="block-features__item">
+          <div class="block-features__icon">
+            <i class="fa fa-list"></i>
+          </div>
+          <div class="block-features__content">
+            <div class="block-features__title">ارسال رایگان</div>
+            <div class="block-features__subtitle">لورم ایپسوم متن ساختگی</div>
+          </div>
+        </div>
+        <div class="block-features__divider"></div>
+        <div class="block-features__item">
+          <div class="block-features__icon">
+            <i class="fa fa-list"></i>
+          </div>
+          <div class="block-features__content">
+            <div class="block-features__title">پشتیبانی 24 ساعته</div>
+            <div class="block-features__subtitle">هر زمان تماس بگیرید</div>
+          </div>
+        </div>
+        <div class="block-features__divider"></div>
+        <div class="block-features__item">
+          <div class="block-features__icon">
+            <i class="fa fa-list"></i>
+          </div>
+          <div class="block-features__content">
+            <div class="block-features__title">100% امن</div>
+            <div class="block-features__subtitle">پرداخت های امن</div>
+          </div>
+        </div>
+        <div class="block-features__divider"></div>
+        <div class="block-features__item">
+          <div class="block-features__icon">
+            <i class="fa fa-list"></i>
+          </div>
+          <div class="block-features__content">
+            <div class="block-features__title">پیشنهادات جدید</div>
+            <div class="block-features__subtitle">تخفیف تا 90%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+  
+  <!-- .block-features / end -->
+  <!-- .block-products-carousel -->
+  {% render_partial "products:cheapest_products" %}
+  <!-- .block-products-carousel / end -->
+  <!-- .block-banner -->
+  <div class="block block-banner">
+    <div class="container">
+      <a href="" class="block-banner__body">
+        <div
+          class="block-banner__image block-banner__image--desktop"
+          style="background-image: url('https://picsum.photos/1110/170')"
+        ></div>
+        <div
+          class="block-banner__image block-banner__image--mobile"
+          style="background-image: url('https://picsum.photos/510/390')"
+        ></div>
+        <div class="block-banner__title">
+          کالای تبلیغاتی
+          <br class="block-banner__mobile-br" />
+        </div>
+        <div class="block-banner__text">بهترین کالا برای خرید شما</div>
+        <div class="block-banner__button">
+          <span class="btn btn-sm btn-primary">هم اکنون بخرید</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <!-- .block-banner / end -->
+  <!-- .block-products -->
+  <div class="block block-products block-products--layout--large-last">
+    <div class="container">
+      <div class="block-header">
+        <h3 class="block-header__title">پرفروش ترین ها</h3>
+        <div class="block-header__divider"></div>
+      </div>
+      <div class="block-products__body">
+        <div class="block-products__list">
+          <div class="block-products__list-item">
+            <div class="product-card">
+              <div class="product-card__badges-list">
+                <div class="product-card__badge product-card__badge--sale">
+                  جدید
+                </div>
+              </div>
+              <div class="product-card__image">
+                <a href="product.html">
+                  <img src="{{media_url}}/images/products/p2.jpg" alt="" />
+                </a>
+              </div>
+              <div class="product-card__info">
+                <div class="product-card__name">
+                  <a href="product.html"> کالای شماره 2 </a>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <div class="product-card__availability">
+                  موجودی: <span class="text-success">موجود در انبار</span>
+                </div>
+                <div class="product-card__prices">
+                  <span class="product-card__new-price">184,000 تومان</span>
+                  <span class="product-card__old-price">200,000 تومان</span>
+                </div>
+                <div class="product-card__buttons">
+                  <button
+                    class="btn btn-primary product-card__addtocart"
+                    type="button"
+                  >
+                    افزودن به سبد
+                  </button>
+                  <button
+                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                    type="button"
+                  >
+                    <i class="fa fa-heart"></i>
+                    <span
+                      class="fake-svg-icon fake-svg-icon--wishlist-16"
+                    ></span>
+                  </button>
+                  <button
+                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                    type="button"
+                  >
+                    <i class="fa fa-shopping-cart"></i>
+                    <span
+                      class="fake-svg-icon fake-svg-icon--wishlist-16"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="block-products__list-item">
+            <div class="product-card">
+              <div class="product-card__badges-list">
+                <div class="product-card__badge product-card__badge--sale">
+                  جدید
+                </div>
+              </div>
+              <div class="product-card__image">
+                <a href="product.html">
+                  <img src="{{media_url}}/images/products/p1.jpg" alt="" />
+                </a>
+              </div>
+              <div class="product-card__info">
+                <div class="product-card__name">
+                  <a href="product.html"> کالای شماره 2 </a>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <div class="product-card__availability">
+                  موجودی: <span class="text-success">موجود در انبار</span>
+                </div>
+                <div class="product-card__prices">
+                  <span class="product-card__new-price">184,000 تومان</span>
+                  <span class="product-card__old-price">200,000 تومان</span>
+                </div>
+                <div class="product-card__buttons">
+                  <button
+                    class="btn btn-primary product-card__addtocart"
+                    type="button"
+                  >
+                    افزودن به سبد
+                  </button>
+                  <button
+                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                    type="button"
+                  >
+                    <i class="fa fa-heart"></i>
+                    <span
+                      class="fake-svg-icon fake-svg-icon--wishlist-16"
+                    ></span>
+                  </button>
+                  <button
+                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                    type="button"
+                  >
+                    <i class="fa fa-shopping-cart"></i>
+                    <span
+                      class="fake-svg-icon fake-svg-icon--wishlist-16"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="block-products__list-item">
+            <div class="product-card">
+              <div class="product-card__badges-list">
+                <div class="product-card__badge product-card__badge--sale">
+                  جدید
+                </div>
+              </div>
+              <div class="product-card__image">
+                <a href="product.html">
+                  <img src="{{media_url}}/images/products/p1.jpg" alt="" />
+                </a>
+              </div>
+              <div class="product-card__info">
+                <div class="product-card__name">
+                  <a href="product.html"> کالای شماره 2 </a>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <div class="product-card__availability">
+                  موجودی: <span class="text-success">موجود در انبار</span>
+                </div>
+                <div class="product-card__prices">
+                  <span class="product-card__new-price">184,000 تومان</span>
+                  <span class="product-card__old-price">200,000 تومان</span>
+                </div>
+                <div class="product-card__buttons">
+                  <button
+                    class="btn btn-primary product-card__addtocart"
+                    type="button"
+                  >
+                    افزودن به سبد
+                  </button>
+                  <button
+                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                    type="button"
+                  >
+                    <i class="fa fa-heart"></i>
+                    <span
+                      class="fake-svg-icon fake-svg-icon--wishlist-16"
+                    ></span>
+                  </button>
+                  <button
+                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                    type="button"
+                  >
+                    <i class="fa fa-shopping-cart"></i>
+                    <span
+                      class="fake-svg-icon fake-svg-icon--wishlist-16"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="block-products__list-item">
+            <div class="product-card">
+              <div class="product-card__badges-list">
+                <div class="product-card__badge product-card__badge--sale">
+                  جدید
+                </div>
+              </div>
+              <div class="product-card__image">
+                <a href="product.html">
+                  <img src="{{media_url}}/images/products/p1.jpg" alt="" />
+                </a>
+              </div>
+              <div class="product-card__info">
+                <div class="product-card__name">
+                  <a href="product.html"> کالای شماره 2 </a>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <div class="product-card__availability">
+                  موجودی: <span class="text-success">موجود در انبار</span>
+                </div>
+                <div class="product-card__prices">
+                  <span class="product-card__new-price">184,000 تومان</span>
+                  <span class="product-card__old-price">200,000 تومان</span>
+                </div>
+                <div class="product-card__buttons">
+                  <button
+                    class="btn btn-primary product-card__addtocart"
+                    type="button"
+                  >
+                    افزودن به سبد
+                  </button>
+                  <button
+                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                    type="button"
+                  >
+                    <i class="fa fa-heart"></i>
+                    <span
+                      class="fake-svg-icon fake-svg-icon--wishlist-16"
+                    ></span>
+                  </button>
+                  <button
+                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                    type="button"
+                  >
+                    <i class="fa fa-shopping-cart"></i>
+                    <span
+                      class="fake-svg-icon fake-svg-icon--wishlist-16"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="block-products__list-item">
+            <div class="product-card">
+              <div class="product-card__badges-list">
+                <div class="product-card__badge product-card__badge--sale">
+                  جدید
+                </div>
+              </div>
+              <div class="product-card__image">
+                <a href="product.html">
+                  <img src="{{media_url}}/images/products/p1.jpg" alt="" />
+                </a>
+              </div>
+              <div class="product-card__info">
+                <div class="product-card__name">
+                  <a href="product.html"> کالای شماره 2 </a>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <div class="product-card__availability">
+                  موجودی: <span class="text-success">موجود در انبار</span>
+                </div>
+                <div class="product-card__prices">
+                  <span class="product-card__new-price">184,000 تومان</span>
+                  <span class="product-card__old-price">200,000 تومان</span>
+                </div>
+                <div class="product-card__buttons">
+                  <button
+                    class="btn btn-primary product-card__addtocart"
+                    type="button"
+                  >
+                    افزودن به سبد
+                  </button>
+                  <button
+                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                    type="button"
+                  >
+                    <i class="fa fa-heart"></i>
+                    <span
+                      class="fake-svg-icon fake-svg-icon--wishlist-16"
+                    ></span>
+                  </button>
+                  <button
+                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                    type="button"
+                  >
+                    <i class="fa fa-shopping-cart"></i>
+                    <span
+                      class="fake-svg-icon fake-svg-icon--wishlist-16"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="block-products__list-item">
+            <div class="product-card">
+              <div class="product-card__badges-list">
+                <div class="product-card__badge product-card__badge--sale">
+                  جدید
+                </div>
+              </div>
+              <div class="product-card__image">
+                <a href="product.html">
+                  <img src="{{media_url}}/images/products/p1.jpg" alt="" />
+                </a>
+              </div>
+              <div class="product-card__info">
+                <div class="product-card__name">
+                  <a href="product.html"> کالای شماره 2 </a>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <div class="product-card__availability">
+                  موجودی: <span class="text-success">موجود در انبار</span>
+                </div>
+                <div class="product-card__prices">
+                  <span class="product-card__new-price">184,000 تومان</span>
+                  <span class="product-card__old-price">200,000 تومان</span>
+                </div>
+                <div class="product-card__buttons">
+                  <button
+                    class="btn btn-primary product-card__addtocart"
+                    type="button"
+                  >
+                    افزودن به سبد
+                  </button>
+                  <button
+                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                    type="button"
+                  >
+                    <i class="fa fa-heart"></i>
+                    <span
+                      class="fake-svg-icon fake-svg-icon--wishlist-16"
+                    ></span>
+                  </button>
+                  <button
+                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                    type="button"
+                  >
+                    <i class="fa fa-shopping-cart"></i>
+                    <span
+                      class="fake-svg-icon fake-svg-icon--wishlist-16"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-products__featured">
+          <div class="block-products__featured-item">
+            <div class="product-card">
+              <div class="product-card__badges-list">
+                <div class="product-card__badge product-card__badge--new">
+                  جدید
+                </div>
+              </div>
+              <div class="product-card__image">
+                <a href="product.html">
+                  <img src="{{media_url}}/images/products/p1.jpg" alt="" />
+                </a>
+              </div>
+              <div class="product-card__info">
+                <div class="product-card__name">
+                  <a href="product.html"> کالای شماره 2 </a>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <div class="product-card__availability">
+                  موجودی: <span class="text-success">موجود در انبار</span>
+                </div>
+                <div class="product-card__prices">200,000 تومان</div>
+                <div class="product-card__buttons">
+                  <button
+                    class="btn btn-primary product-card__addtocart"
+                    type="button"
+                  >
+                    افزودن به سبد
+                  </button>
+                  <button
+                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                    type="button"
+                  >
+                    <i class="fa fa-heart"></i>
+                    <span
+                      class="fake-svg-icon fake-svg-icon--wishlist-16"
+                    ></span>
+                  </button>
+                  <button
+                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                    type="button"
+                  >
+                    <i class="fa fa-shopping-cart"></i>
+                    <span
+                      class="fake-svg-icon fake-svg-icon--wishlist-16"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .block-products / end -->
+  <!-- .block-categories -->
+{% render_partial "products:popular_products_group" %}
+  <!-- .block-categories / end -->
+  <!-- .block-products-carousel -->
+{% render_partial "products:last_products" %}
+  <!-- .block-products-carousel / end -->
+  <!-- .block-posts -->
+  <div class="block block-posts block-posts--layout--grid-nl" data-layout="grid-nl">
+    <div class="container">
+      <div class="block-header">
+        <h3 class="block-header__title">آخرین مقالات</h3>
+        <div class="block-header__divider"></div>
+        <div class="block-header__arrows-list">
+          <button
+            class="block-header__arrow block-header__arrow--left"
+            type="button"
+          >
+            <i class="fas fa-angle-right"></i>
+          </button>
+          <button
+            class="block-header__arrow block-header__arrow--right"
+            type="button"
+          >
+            <i class="fas fa-angle-left"></i>
+          </button>
+        </div>
+      </div>
+      <div class="block-posts__slider">
+        <div class="owl-carousel">
+          <div class="post-card">
+            <div class="post-card__image">
+              <a href="">
+                <img src="{{media_url}}/images/products/p3.jpg" alt="" />
+              </a>
+            </div>
+            <div class="post-card__info">
+              <div class="post-card__category">
+                <a href="">پیشنهادهای ویژه</a>
+              </div>
+              <div class="post-card__name">
+                <a href=""
+                  >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</a
+                >
+              </div>
+              <div class="post-card__date">19 فروردین 1401</div>
+              <div class="post-card__content">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان
+              </div>
+              <div class="post-card__read-more">
+                <a href="" class="btn btn-secondary btn-sm">بیشتر بخوانید</a>
+              </div>
+            </div>
+          </div>
+          <div class="post-card">
+            <div class="post-card__image">
+              <a href="">
+                <img src="{{media_url}}/images/products/p3.jpg" alt="" />
+              </a>
+            </div>
+            <div class="post-card__info">
+              <div class="post-card__category"><a href="">آخرین اخبار</a></div>
+              <div class="post-card__name">
+                <a href=""
+                  >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</a
+                >
+              </div>
+              <div class="post-card__date">5 فروردین 1401</div>
+              <div class="post-card__content">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان
+              </div>
+              <div class="post-card__read-more">
+                <a href="" class="btn btn-secondary btn-sm">بیشتر بخوانید</a>
+              </div>
+            </div>
+          </div>
+          <div class="post-card">
+            <div class="post-card__image">
+              <a href="">
+                <img src="{{media_url}}/images/products/p3.jpg" alt="" />
+              </a>
+            </div>
+            <div class="post-card__info">
+              <div class="post-card__category"><a href="">محصولات جدید</a></div>
+              <div class="post-card__name">
+                <a href=""
+                  >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                  با</a
+                >
+              </div>
+              <div class="post-card__date">12 اسفند 1397</div>
+              <div class="post-card__content">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان
+              </div>
+              <div class="post-card__read-more">
+                <a href="" class="btn btn-secondary btn-sm">بیشتر بخوانید</a>
+              </div>
+            </div>
+          </div>
+          <div class="post-card">
+            <div class="post-card__image">
+              <a href="">
+                <img src="{{media_url}}/images/products/p3.jpg" alt="" />
+              </a>
+            </div>
+            <div class="post-card__info">
+              <div class="post-card__category">
+                <a href="">پیشنهادهای ویژه</a>
+              </div>
+              <div class="post-card__name">
+                <a href=""
+                  >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                  با استفاده از طراحان</a
+                >
+              </div>
+              <div class="post-card__date">30 بهمن 1397</div>
+              <div class="post-card__content">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان
+              </div>
+              <div class="post-card__read-more">
+                <a href="" class="btn btn-secondary btn-sm">بیشتر بخوانید</a>
+              </div>
+            </div>
+          </div>
+          <div class="post-card">
+            <div class="post-card__image">
+              <a href="">
+                <img src="{{media_url}}/images/products/p3.jpg" alt="" />
+              </a>
+            </div>
+            <div class="post-card__info">
+              <div class="post-card__category"><a href="">محصولات جدید</a></div>
+              <div class="post-card__name">
+                <a href=""
+                  >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                  و</a
+                >
+              </div>
+              <div class="post-card__date">12 دی 1397</div>
+              <div class="post-card__content">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان
+              </div>
+              <div class="post-card__read-more">
+                <a href="" class="btn btn-secondary btn-sm">بیشتر بخوانید</a>
+              </div>
+            </div>
+          </div>
+          <div class="post-card">
+            <div class="post-card__image">
+              <a href="">
+                <img src="{{media_url}}/images/products/p3.jpg" alt="" />
+              </a>
+            </div>
+            <div class="post-card__info">
+              <div class="post-card__category">
+                <a href="">پیشنهادهای ویژه</a>
+              </div>
+              <div class="post-card__name">
+                <a href=""
+                  >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</a
+                >
+              </div>
+              <div class="post-card__date">21 آذر 1397</div>
+              <div class="post-card__content">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان
+              </div>
+              <div class="post-card__read-more">
+                <a href="" class="btn btn-secondary btn-sm">بیشتر بخوانید</a>
+              </div>
+            </div>
+          </div>
+          <div class="post-card">
+            <div class="post-card__image">
+              <a href="">
+                <img src="{{media_url}}/images/products/p3.jpg" alt="" />
+              </a>
+            </div>
+            <div class="post-card__info">
+              <div class="post-card__category">
+                <a href="">پیشنهادهای ویژه</a>
+              </div>
+              <div class="post-card__name">
+                <a href=""
+                  >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                  با استفاده از</a
+                >
+              </div>
+              <div class="post-card__date">3 آذر 1397</div>
+              <div class="post-card__content">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان
+              </div>
+              <div class="post-card__read-more">
+                <a href="" class="btn btn-secondary btn-sm">بیشتر بخوانید</a>
+              </div>
+            </div>
+          </div>
+          <div class="post-card">
+            <div class="post-card__image">
+              <a href="">
+                <img src="{{media_url}}/images/products/p3.jpg" alt="" />
+              </a>
+            </div>
+            <div class="post-card__info">
+              <div class="post-card__category"><a href="">آخرین اخبار</a></div>
+              <div class="post-card__name">
+                <a href=""
+                  >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                  با استفاده</a
+                >
+              </div>
+              <div class="post-card__date">29 آبان 1397</div>
+              <div class="post-card__content">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان
+              </div>
+              <div class="post-card__read-more">
+                <a href="" class="btn btn-secondary btn-sm">بیشتر بخوانید</a>
+              </div>
+            </div>
+          </div>
+          <div class="post-card">
+            <div class="post-card__image">
+              <a href="">
+                <img src="{{media_url}}/images/products/p3.jpg" alt="" />
+              </a>
+            </div>
+            <div class="post-card__info">
+              <div class="post-card__category"><a href="">محصولات جدید</a></div>
+              <div class="post-card__name">
+                <a href=""
+                  >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                  با استفاده از</a
+                >
+              </div>
+              <div class="post-card__date">10 مهر 1397</div>
+              <div class="post-card__content">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان
+              </div>
+              <div class="post-card__read-more">
+                <a href="" class="btn btn-secondary btn-sm">بیشتر بخوانید</a>
+              </div>
+            </div>
+          </div>
+          <div class="post-card">
+            <div class="post-card__image">
+              <a href="">
+                <img src="{{media_url}}/images/products/p3.jpg" alt="" />
+              </a>
+            </div>
+            <div class="post-card__info">
+              <div class="post-card__category">
+                <a href="">پیشنهادهای ویژه</a>
+              </div>
+              <div class="post-card__name">
+                <a href=""
+                  >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</a
+                >
+              </div>
+              <div class="post-card__date">1 شهریور 1397</div>
+              <div class="post-card__content">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان
+              </div>
+              <div class="post-card__read-more">
+                <a href="" class="btn btn-secondary btn-sm">بیشتر بخوانید</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .block-posts / end -->
+  <!-- .block-brands -->
+
+  <div class="block block-brands">
+    <div class="container">
+      <div class="block-brands__slider">
+        <div class="owl-carousel">
+          <div class="block-brands__item">
+            <a href=""
+              ><img src="https://via.placeholder.com/380x80/79f.png/fff" alt=""
+            /></a>
+          </div>
+          <div class="block-brands__item">
+            <a href=""
+              ><img src="https://via.placeholder.com/380x80/08f.png/fff" alt=""
+            /></a>
+          </div>
+          <div class="block-brands__item">
+            <a href=""
+              ><img src="https://via.placeholder.com/380x80/a7f.png/fff" alt=""
+            /></a>
+          </div>
+          <div class="block-brands__item">
+            <a href=""
+              ><img src="https://via.placeholder.com/380x80/06f.png/fff" alt=""
+            /></a>
+          </div>
+          <div class="block-brands__item">
+            <a href=""
+              ><img src="https://via.placeholder.com/380x80/e5f.png/fff" alt=""
+            /></a>
+          </div>
+          <div class="block-brands__item">
+            <a href=""
+              ><img src="https://via.placeholder.com/380x80/04f.png/fff" alt=""
+            /></a>
+          </div>
+          <div class="block-brands__item">
+            <a href=""
+              ><img src="https://via.placeholder.com/380x80/f3f.png/fff" alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .block-brands / end -->
+</div>
+<!-- site__body / end -->
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% load humanize %}
+<div class="dashboard__orders card">
+    <div class="card-header"><h5>سفارشات اخیر</h5></div>
+    <div class="card-divider"></div>
+    <div class="card-table">
+        <div class="table-responsive-sm">
+            <table>
+                <thead>
+                    <tr>
+                        <th>سفارش</th>
+                        <th>تاریخ</th>
+                        <th>وضعیت</th>
+                        <th>جمع کل</th>
+                    </tr>
+                </thead>  
+                <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td><a href="">{{order.id}}</a></td>
+                            <td>{{order.register_date}}</td>
+                            <td>{{order.oder_code}}</td>
+                            <td>{{order.get_order_total_price|intcomma}} تومان</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

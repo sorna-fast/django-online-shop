@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تماس با من</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #0a0a0a;
+            min-height: 100vh;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #ff0000, #ff4d4d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+        }
+        
+        .contact-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="text-white flex flex-col">
+    <!-- Simple Header -->
+    <header class="bg-black/80 py-4 px-6 border-b border-red-900/50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="{% url "main:index" %}" class="text-xl font-bold gradient-text">صفحه اصلی</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center py-12 px-4">
+        <div class="text-center max-w-md">
+            <h1 class="text-4xl font-bold mb-8 gradient-text">تماس با من</h1>
+            
+            <div class="space-y-6 mb-12">
+                <!-- GitHub -->
+                <a href="https://github.com/sorna-fast" target="_blank" class="contact-btn inline-block bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg w-full glow-effect">
+                    <i class="fab fa-github text-2xl ml-2"></i>
+                    https://github.com/sorna-fast
+                </a>
+                
+                <!-- Telegram -->
+                <a href="https://t.me/Fast_programmer" target="_blank" class="contact-btn inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg w-full glow-effect">
+                    <i class="fab fa-telegram text-2xl ml-2"></i>
+                    https://t.me/Fast_programmer
+                </a>
+                
+                <!-- Gmail -->
+                <a href="#" class="contact-btn inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg w-full glow-effect">
+                    <i class="fas fa-envelope text-2xl ml-2"></i>
+                    masudpythongit@gmail.com
+                </a>
+            </div>
+            
+            <p class="text-gray-400">برای ارتباط سریعتر از تلگرام پیام دهید</p>
+        </div>
+    </main>
+
+
+    <script>
+        // Simple hover effects
+        document.querySelectorAll('.contact-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.classList.add('shadow-lg');
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.classList.remove('shadow-lg');
+            });
+        });
+    </script>
+</body>
+</html>

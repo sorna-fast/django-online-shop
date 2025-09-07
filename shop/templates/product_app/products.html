@@ -1,0 +1,194 @@
+{% extends "main_template.html" %}
+{% load render_partial %}
+{% load humanize %}
+{% block title %}فروشگاه مسعود{% endblock title %}
+{% block content %}
+        
+        <!-- site__body -->
+		<div class="site__body">
+			<div class="page-header">
+				<div class="page-header__container container">
+					<div class="page-header__breadcrumb">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="{% url 'main:index' %}">خانه</a>
+									/مرتب‌سازی 
+								</li>
+								<li class="breadcrumb-item">
+									<a href="{% url "products:product_of_group" slug=current_group.slug  %}">{{ current_group.group_title }}</a>
+								</li>
+							</ol>
+						</nav>
+					</div>
+					<div class="page-header__title">
+						<h1 class= "product-group-title">محصولات گروه {{ current_group.group_title }}</h1></div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="shop-layout shop-layout--sidebar--start">
+					<div class="shop-layout__sidebar">
+						<div class="block block-sidebar">
+							<form action="">
+							<div class="block-sidebar__item">
+								<div class="widget-filters widget" data-collapse data-collapse-opened-class="filter--opened">
+									<h4 class="widget__title">فیلترها</h4>
+									<a id="filter_state" class="btn-filter-state" href="{% url "products:product_of_group" slug=group_slug %}">
+										<i class="fa fa-times"></i>
+										دارای فیلتر
+									</a>
+									<div class="widget-filters__list">
+										<div class="widget-filters__item">
+											<div class="filter filter--opened" data-collapse-item>
+												<button type="button" class="filter__title" data-collapse-trigger>دسته ها
+													<svg class="filter__arrow" width="12px" height="7px">
+														<use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
+													</svg>
+												</button>
+												<div class="filter__body" data-collapse-content>
+													<div class="filter__container">
+														<div class="filter-categories">
+															{% render_partial 'products:product_groups_partial' %}
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										{% include "partials/products/price_filter.html" %}
+                                		{% render_partial "products:filtering_product_brands_partial" slug=current_group.slug %}
+										{% render_partial "products:filtering_features_partial" slug=current_group.slug %}
+									</div>
+									<div class="widget-filters__actions d-flex">
+										<button type="submit" class="btn btn-primary btn-sm">فیلتر</button>
+									</div>
+								</div>
+							</div>
+						</form>
+						</div>
+					</div>
+					<div class="shop-layout__content">
+						<div class="block">
+							<div class="products-view">
+								<div class="products-view__options">
+									<div class="view-options">
+
+										<div class="view-options__legend">در حال نمایش 6 از 98 محصول</div>
+										<div class="view-options__divider"></div>
+										<div class="view-options__control">
+											<label for="">مرتب‌سازی بر اساس</label>
+											<div>
+												<select class="form-control form-control-sm" name="" id="select_sort"  onchange="select_sort()">
+													{% if sort_type == "0" %}
+														<option value="0" selected>پیش فرض</option>
+														<option value="1">قیمت کم به زیاد</option>
+														<option value="2">قیمت زیاد به کم</option>
+													{% elif sort_type == "1" %}
+														<option value="0">پیش فرض</option>
+														<option value="1" selected>قیمت کم به زیاد</option>
+														<option value="2">قیمت زیاد به کم</option>
+													{% elif sort_type == "2" %}
+														<option value="0">پیش فرض</option>
+														<option value="1">قیمت کم به زیاد</option>
+														<option value="2" selected>قیمت زیاد به کم</option>
+													{% endif %}
+												</select>
+											</div>
+										</div>
+										<div class="view-options__control">
+											<label for="">نمایش</label>
+											<div>
+												<select class="form-control form-control-sm" name="product_numbers" id="product_numbers" onchange="update_product_numbers()">
+													{% for item in show_count_product %}
+														<option value="{{ item }}" {% if item == product_current_number %}selected{% endif %}>{{ item }}</option>
+													{% endfor %}
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="products-view__list products-list" data-layout="grid-3-sidebar" data-with-features="false">
+                                    
+									<div class="products-list__body">
+                                        {% for product in page_obj %}
+                                            {% include "partials/products/product_box.html" with type=3 %}
+                                        {% endfor %}
+									</div>
+								</div>
+<br>
+		<!--Pagination-->
+		<nav  aria-label="Page navigation example">
+			<ul class="pagination justify-content-center">
+			
+			<!--Previous-->
+			{% if page_obj.has_previous %}
+			<li class="page-item">
+				<a class="page-link" href="?page={{ page_obj.previous_page_number }}">قبلی</a>
+			</li>
+			{% else %}
+			<li class="page-item disabled">
+				<a class="page-link" href="#" tabindex="-1" aria-disabled="True">قبلی</a>
+			</li>
+			{% endif %}
+			<!--end Previous-->
+	
+	
+			<!--Hellip-->
+			{% if page_obj.number|add:'-4' > 1 %}
+				<li class="page-item"><a class="page-link" href="?page={{ page_obj.number|add:'-5' }}">&hellip;</a></li>
+			{% endif %}
+			<!--end Hellip-->
+	
+	
+			<!--Pager-->
+			{% for i in page_obj.paginator.page_range %}
+				{% if page_obj.number == i %}
+					<li class="page-item active" aria-current="page">
+						<span class="page-link">
+							{{ i }}
+							<span class="sr-only">(current)</span>
+						</span>
+					</li>
+				{% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5' %}
+					<li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+
+
+				{% endif %}
+			{% endfor %}
+			<!--end Pager-->
+	
+	
+			<!--Hellip-->   
+			{% if page_obj.paginator.num_pages > page_obj.number|add:'4' %}
+			<li class="page-item"><a class="page-link" href="?page={{ page_obj.number|add:'5' }}">&hellip;</a></li>
+			{% endif %}
+			<!--end Hellip-->
+	
+	
+			<!--Next-->
+			{% if page_obj.has_next %}
+				<li class="page-item">
+				<a class="page-link" href="?page={{ page_obj.next_page_number }}">بعدی</a>
+			</li>
+			{% else %}
+				<li class="page-item disabled">
+				<a class="page-link" href="#" tabindex="-1" aria-disabled="True">بعدی</a>
+			</li>
+			{% endif %}
+			<!--end Next-->
+			
+		</ul>
+		</nav>
+	<!--end of Pagination-->
+
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- site__body / end -->
+
+{% endblock content %}

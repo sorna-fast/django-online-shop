@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    
+    <link rel="icon" type="image/png" href="{{media_url}}images/favicon2.png">
+
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap-4.5.3/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/owl-carousel-2.3.4/assets/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    <script src="{% static 'vendor/jquery-3.3.1/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap-4.5.3/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/owl-carousel-2.3.4/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/test.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-5.6.3/css/all.min.css' %}">
+    
+
+</head>
+<body>
+
+    {% include "partials/accounts/user_panel_header.html" %}
+    {% include "partials/messages.html" %}
+
+    <div class="site__body">
+        <div class="page-header">
+            <div class="page-header__container container">
+                <div class="page-header__title">
+                    <h1>حساب کاربری</h1>
+                </div>
+            </div>
+            <div class="block">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-3 d-flex">
+                            <div class="account-nav flex-grow-1">
+                                <h4 class="account-nav__title">منوی اصلی</h4>
+
+                                <ul>
+                                    <li class="account-nav__item account-nav__item--active">
+                                        <a href="{% url 'accounts:userpanel' %}">داشبورد</a>
+                                      </li>
+                                      
+                                    <li class="account-nav__item"><a href="{% url "accounts:update_profile" %}">ویرایش پروفایل</a></li>
+                                    <li class="account-nav__item"><a href="{% url "accounts:show_user_payments" %}">سابقه ی پرداخت</a></li> 
+                                    <li class="account-nav__item"><a href="{% url "accounts:change_password" %}">تغییر رمز عبور</a></li>
+                                    <li class="account-nav__item account-nav__item--active"><a href="{% url "csf:user_favorites" %}">محصولات مورد علاقه</a></li>
+                                    <li class="account-nav__item"><a href="{% url "accounts:Logout" %}">خروج</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-9 mt-4 mt-lg-0">
+                    
+                                {% block content %}
+                                {% endblock content %}
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "partials/footer.html" %}
+    {% comment %} {% include "partials/script.html" %} {% endcomment %}
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends "main_template.html" %}
+{% load render_partial %}
+{% block title %}نتیجه جست و جوی شما{% endblock title %}
+
+{% block content %}
+
+{% comment %} اگه کالایی پیدا کرد نشون میده اگه نه میگه نه {% endcomment %}
+
+{% if products %}
+    <div class="">
+        <div class="container">
+            <h2 style="text-align: center;">نتیجه جست و جوی شما</h2>
+            <div class="product-flexbox">
+                {% for product in products %}
+                    {% include "partials/products/product_box.html" with type=1 %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="container" style="padding: 100px;">
+        <h3 style="text-align: center; color:red;">کالایی با این مشخصات یافت نشد</h3>
+    </div>
+{% endif %}
+
+{% endblock content %}
